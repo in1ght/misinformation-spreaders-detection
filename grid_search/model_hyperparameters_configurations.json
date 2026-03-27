@@ -1,0 +1,12 @@
+{
+    "mha":[[30,2],[24,2],[24,3],[30,3],[18,2],[18,3],[36,2]],
+    "fnn":[[32, 64, 32],[64,32],[32,32],[128,64]],
+    "loss":["HingeLoss","torch.nn.BCELoss"],
+    "optimizer":[["torch.optim.AdamW",0.001],["torch.optim.Adam",0.0005],["torch.optim.AdamW",0.0005]],
+    "batch":[12,16,32,64],
+    "tweets_inter": [[false,[0]],[true,[100]],[true,[32,32]],[true,[64,64]],[true,[16,32,16]],[true,[64,16]]],
+    "user_feat":["user_stats_tree_metrics","content_evol_tree_metrics","tree_metric", "content_evol_tree_metrics_user_stats", "all_data_no_stats"],
+    "ui_and_us_X":["user_stats_tree_metrics","content_evol_tree_metrics","all_data_no_stats","tree_metric","content_evol_tree_metrics_user_stats"],
+    "user_sim": [[false,[0]],[true,[100]],[true,[64]],[true,[32]]],
+    "user_inter": [[false, [0]],[true, [64, 32, 16]],[true,[64, 32]],[true,[32, 32, 32]]]
+}

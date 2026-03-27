@@ -1,0 +1,15 @@
+{
+    "user_inter": [false,[0]],
+    "user_sim": [true,[32, 16]],
+    "tweets_inter": [true,[64,16]],
+    "user_feat": [true, "all_data_no_stats"], 
+    "ui_and_us_X": "tree_metric",
+    "fnn": [32, 64, 32], 
+    "optimizer": ["torch.optim.AdamW",0.0005], 
+    "loss": "HingeLoss", 
+    "max_epochs": 13, 
+    "batch": 12, 
+    "early_stopping_tl": 20, 
+    "mha": [30,3], 
+    "threshold": 0.5
+}

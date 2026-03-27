@@ -1,0 +1,36 @@
+name: mshmodel
+channels:
+  - nvidia
+  - pytorch
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.10
+
+  # core scientific stack
+  - numpy
+  - scipy
+  - pandas=1.5.3
+  - scikit-learn
+  - matplotlib
+  - seaborn
+  - networkx
+
+  # pyTorch + CUDA
+  - pytorch
+  - torchvision
+  - torchaudio
+  - pytorch-cuda=12.1
+
+  # NLP / Transformers
+  - tqdm
+
+  # utilities
+  - pip
+
+  - pip:
+      - transformers
+      - llama-index
+      - emoji
+      - pymongo
