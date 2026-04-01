@@ -31,7 +31,7 @@ Download [BERT embeddings](https://drive.google.com/file/d/10b5Ab2H5qjWLKJGx86bB
 3. **Run pretrained model**
 
 ```
-python write_predictions.py --model_name test_cmd --path final_binary --save
+python write_predictions.py --model_name final_binary --save
 ```
 
 ## Motivation
@@ -73,6 +73,14 @@ For evaluation, Precision, Recall, F1-score, and the Matthews Correlation Coeffi
 The model prioritizes recall over precision, as the primary objective is to minimize the risk of failing to detect such cases. 
 
 For the three-class classification setting, the same evaluation metrics are applied. Precision, Recall, and F1-score are computed using macro averaging to account for class imbalance.
+
+## Ablation Results
+
+The ablation study was conducted in a sequential manner due to computational constraints and is provided in the `ablation_results/` directory.
+
+Starting from a fixed baseline configuration, individual components were removed or modified one at a time, while keeping all other parameters constant.
+
+The ablation study reveals that removing any major component of the model results in a decrease in F1-score, recall, and MCC, underscoring the importance of each part of the pipeline. Among the components, the User-with-User Similarity Graph contributes most strongly to overall performance.
 
 ## Dataset
 
@@ -126,7 +134,9 @@ conda activate mshmodel
     │   │   ├── model_pipeline.png
     │   │   └── sium.png
     │   └── plots/                           # detailed feature analysis
-    │
+    ├── ablation_results/                    # variations of the main model 
+    │   ├── ablation_main_model_results.csv
+    │   └── sium_variant_results.csv
     ├── grid_search/                         # dir to create variations in the paper
     │   ├── model_hyperparameters.json
     │   └── model_hyperparameters_configurations.json
@@ -188,7 +198,7 @@ In this section, we provide a step-by-step instruction on how to run the require
 To run a pretrained model that is attached to the repository, described in more detail in the paper, with all of the hyperparameters, run the following command in your environment in your CMD:
 
 ```
-python write_predictions.py --model_name final_binary_cmd --path final_binary --save
+python write_predictions.py --model_name final_binary --save
 ```
 
 This command evaluates the best-performing model described in the paper on the provided dataset. The model relies on precomputed BERT embeddings for the TTIG component. These embeddings are provided; alternatively, they can be recomputed if required. The saved table has the following structure, with values rounded and minimized for clarity:
@@ -252,7 +262,7 @@ In addition to binary classification, a multiclass classification setting is con
 To test a pretrained multiclass model, execute the following command in your CMD:
 
 ```
-python write_predictions.py --model_name final_multiclass_cmd --path final_multiclass --last_epoch 10 --save
+python write_predictions.py --model_name final_multiclass --last_epoch 10 --save
 ```
 
 The evaluation produces results of the following form:
@@ -284,7 +294,7 @@ By operating on a unified User-with-User Similarity Graph and avoiding the use o
 To run a precomputed SIUM, described in more detail in the paper (with a threshold of 0.85 and $k$-top-sim set to 15), run the following command in your environment in your CMD:
 
 ```
-python write_predictions.py --model_name final_sium_binary_cmd --path final_sium_binary --sim_matrix data\\simMatrix_united_15_85.gpickle --last_epoch 10 --save
+python write_predictions.py --model_name final_sium_binary --sim_matrix data\\simMatrix_united_15_85.gpickle --last_epoch 10 --save
 ```
 
 The evaluation produces results of the following form:

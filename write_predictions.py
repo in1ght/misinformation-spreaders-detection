@@ -130,6 +130,8 @@ def draw_data_pred(
     
     out = len(threshold) + 1 if (isinstance(model_hp['loss'], SimpleCrossEntropyLoss)) else 1
     
+    
+
     model = PredictorABLATION(model_hp['user_inter'][1],model_hp['user_sim'][1],model_hp['tweets_inter'][1],
                                 model_hp['fnn'],uf_len,uius_len,uius_len,len(df_tweets_e_BERT.columns),model_hp['mha'][0],
                                 model_hp['mha'][1],GCN,parts, out=out)
@@ -317,8 +319,9 @@ def prediction_table_per_epoch(
     
     # to optimize it for multi-class classification, although prediction def does
     # support it yet
-    out = len(model_hp['threshold']) + 1 if \
-        (model_hp['loss'].__name__ == "SimpleCrossEntropyLoss" and model_hp['loss'].__module__ == "__main__") else 1
+    # out = len(model_hp['threshold']) + 1 if \
+    #     (model_hp['loss'].__name__ == "SimpleCrossEntropyLoss" and model_hp['loss'].__module__ == "__main__") else 1
+    out = len(model_hp['threshold']) + 1 if (isinstance(model_hp['loss'], SimpleCrossEntropyLoss)) else 1
     average_type = "macro" if out >= 2 else "binary"
     
     model = PredictorABLATION(
@@ -543,6 +546,7 @@ if __name__ == "__main__":
             path = os.path.join("models", args.model_name)
         else:
             raise ValueError("Variable path was not given and not found using default path")
+
     if args.model_hp_json:
         with open(args.model_hp_json, "r") as f:
             model_hyperparameters = json.load(f)
