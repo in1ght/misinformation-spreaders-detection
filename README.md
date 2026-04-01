@@ -128,6 +128,7 @@ conda activate mshmodel
 └── misinf_detection_model/
     ├── environment.yaml                     # Environment file
     ├── README.md                            # <= You are here
+    ├── mshmodel_UMAP2026_LBR.pdf            # Research paper
     │
     ├── images/
     │   ├── readme/                          # images used in README
