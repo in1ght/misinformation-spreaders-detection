@@ -24,7 +24,7 @@ conda env create -f environment.yaml
 conda activate mshmodel
 ```
 
-1. **Download required BERT embeddings**
+2. **Download required BERT embeddings**
 
 Download [BERT embeddings](https://drive.google.com/file/d/10b5Ab2H5qjWLKJGx86bBwHgCie0FMPxp/view?usp=sharing) and place the file under the name `df_tweets_embeddings_bert.pickle` into: `data/`
 
