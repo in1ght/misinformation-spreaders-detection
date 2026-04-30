@@ -1,7 +1,7 @@
 # Identifying Misinformation Spreaders: Challenges and Model Architectures
 
 This repository contains the implementation of the paper  
-**"Identifying Misinformation Spreaders: A Multi-Source Hybrid Model" (UMAP 2026)**.
+**Identifying Misinformation Spreaders through Multi-Source User Modeling" - ACM UMAP 2026. DOI: 10.1145/3774935.3812721**.
 
 ## TL;DR
 
@@ -334,4 +334,16 @@ This project is licensed under the MIT License.
 
 ### Citation
 
-Under review at ACM UMAP 2026. Citation will be updated upon publication.
+If using our code or model, please cite our publication:
+
+```
+@inproceedings{chervinskyy2026,
+  author = {Chervinskyy, Roman and Tommasel, Antonela},
+  title = {Identifying Misinformation Spreaders through Multi-Source User Modeling},
+  booktitle = {Proceedings of the 34th ACM Conference on User Modeling, Adaptation and Personalization (UMAP '26), June 08--11, 2026, Gothenburg, Sweden},
+  year = {2026},
+  doi = {10.1145/3774935.3812721},
+  isbn = {979-8-4007-2311-7/2026/06}
+}
+```
+
